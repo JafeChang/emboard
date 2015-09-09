@@ -2,6 +2,7 @@ package test.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.boot.registry.internal.StandardServiceRegistryImpl;
 import org.hibernate.cfg.Configuration;
@@ -27,7 +28,7 @@ public class StudentDao {
 			SessionFactory sessionFactory = configuration
 					.buildSessionFactory(registry);
 			session = sessionFactory.openSession();
-			// Transaction tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 
 			session.save(student);
 			session.getTransaction().commit();

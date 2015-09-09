@@ -8,7 +8,7 @@
 <title>Input Test</title>
 </head>
 <body>
-	<s:form action="submit"> 
+	<s:form action="inputsubmit"> 
 		<s:textfield name="student.id" label="id"></s:textfield>
 		<s:textfield name="student.name" label="name"></s:textfield>
 		<s:submit label="submit"></s:submit>
