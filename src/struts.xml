@@ -25,6 +25,16 @@
 	<include file="example.xml" />
 	Add packages here -->
 	<constant name="struts.devMode" value="true" />
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="submit" class="test.action.InputSubmitAction">
+			<result >/inputresult.jsp</result>
+			<result name="error">/error/error.jsp</result>
+		</action>
+		<action name="input" class="">
+			<result>/input.jsp</result>
+		</action>
+	</package>
 
 
 </struts>
