@@ -1,9 +1,6 @@
 /build/
-<<<<<<< HEAD
 /prepared
-=======
 /src/test/
 /src/com/
 /*.link
 /*.lnk
->>>>>>> test-struts
