@@ -5142,7 +5142,8 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 	display: inline-block;
 	padding: 5px 14px;
 	background-color: #ffffff;
-	border: 1px solid #dddddd;
+	/*border: 1px solid #dddddd;*/
+	border: 1px solid #fff !important;
 	border-radius: 15px;
 }
 
