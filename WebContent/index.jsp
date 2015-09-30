@@ -47,11 +47,11 @@
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#">Home</a></li>
+				<li class="active"> <a href="#">Home</a></li>
 				<li><a href="#about">All post</a></li>
-				<li><a href="input.jsp">New post</a></li>
-				<li><a href="#myModal1" class="btn" data-toggle="modal">注册</a></li>
-				<li><a href="#myModal2" class="btn" data-toggle="modal">登陆</a></li>
+				<li><a href="newpost.jsp">发表文章</a></li>
+				<li><a href="#myModal1" data-toggle="modal">注册</a></li>
+				<li><a href="#myModal2" data-toggle="modal">登陆</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
