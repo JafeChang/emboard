@@ -1,7 +1,6 @@
 #What to do
 
 -------
-
 [How to edit the list?](https://github.com/JafeChang/emboard/blob/master/what_to_do/how_to_edit_these_lists.md "How to edit the list?")
 
 
