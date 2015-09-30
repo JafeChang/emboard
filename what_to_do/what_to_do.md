@@ -2,11 +2,11 @@
 
 -------
 
-                       How to edit the list?
+[How to edit the list?](https://github.com/JafeChang/emboard/blob/master/what_to_do/how_to_edit_these_lists.md "How to edit the list?")
 
 
 ####视图资源（HTML）清单 
-@jafechang  
+@jafechang  2015-09-30
 
 |  | 页面 |   文件  |进度（%） |
 | -| ----------- | ------------ |
