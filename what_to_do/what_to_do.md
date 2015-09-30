@@ -7,7 +7,7 @@
 ####目录结构
 @jafechang 2015-09-30  
   
-详见 [README.md](https://github.com/JafeChang/emboard/blob/master/README.md#dir "目录结构")
+详见 [README.md](https://github.com/JafeChang/emboard/blob/master/README.md#目录结构 "目录结构")
 
 ####视图资源（HTML）清单 
 @jafechang  2015-09-30
