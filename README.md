@@ -18,3 +18,6 @@ Because of our limited capability, emboard may appear unforeseen bugs and some l
 <span id="dir"><span/>
 ####目录结构
 @jafechang 2015-09-30
+
+目前所有的视图在WebContent目录下，包括jsp、js与css文件；
+后台java源文件在src下。临时目录结构，很快会有变化。
