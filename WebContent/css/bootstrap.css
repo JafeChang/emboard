@@ -7247,3 +7247,10 @@ button.close {
 	padding: 4px 5px !important;
 	margin-bottom: 14px !important;
 }
+
+/****************/
+
+.navbar-logo{
+	margin-top: -5px !important;
+	height: 100% !important;
+}

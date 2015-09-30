@@ -43,11 +43,12 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">emboard</a>
+			<a class="navbar-brand " href="index.jsp"><img class="navbar-logo"
+				alt="emboard" src="images/logo-emboard.png"></a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"> <a href="#">Home</a></li>
+				<li class="active"><a href="#">Home</a></li>
 				<li><a href="#about">All post</a></li>
 				<li><a href="newpost.jsp">发表文章</a></li>
 				<li><a href="#myModal1" data-toggle="modal">注册</a></li>
