@@ -3,23 +3,77 @@
 -------
 [How to edit the list?](https://github.com/JafeChang/emboard/blob/master/what_to_do/how_to_edit_these_lists.md "How to edit the list?")
 
+ 
+####目录结构
+@jafechang 2015-09-30  
+  
+详见 [README.md](https://github.com/JafeChang/emboard/blob/master/README.md#dir "目录结构")
 
 ####视图资源（HTML）清单 
 @jafechang  2015-09-30
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th>页面</th>
+				<th>文件</th>
+				<th>进度（%）</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>主页</td>
+				<td>index.jsp</td>
+				<td>90</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>所有文章页面</td>
+				<td>allposts.jsp</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>发表文章页面</td>
+				<td>myposts.jsp</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>搜索页面</td>
+				<td>searches.jsp</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>用户的管理页面</td>
+				<td>user.jsp</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>后台的管理页面</td>
+				<td>admin.jsp</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>帮助与支持页面</td>
+				<td>help.jsp</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>错误页面</td>
+				<td>error.jsp</td>
+				<td>0</td>
+			</tr>
+		</tbody>
+	</table>
 
+####后端资源清单
 
-页面      文件    进度（%）    
-
-1.    主页.........................index.jsp.............90       
-2.    所有文章页面..........allposts.jsp............0   
-3.    发表文章页面..........myposts.jsp...........0   
-4.    搜索页面..................searches.jsp.........0   
-5.    用户的管理页面.......user.jsp.................0   
-6.    后台的管理页面.......admin.jsp..............0   
-7.    帮助与支持页面.......help.jsp.................0   
-8.    错误页面..................error.jsp................0   
-
---------
  
 
 
