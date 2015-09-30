@@ -35,36 +35,42 @@
 			</tr>
 			<tr>
 				<td>3</td>
-				<td>发表文章页面</td>
+				<td>已发表文章页面</td>
 				<td>myposts.jsp</td>
 				<td>0</td>
 			</tr>
 			<tr>
 				<td>4</td>
+				<td>发表文章页面</td>
+				<td>newpost.jsp</td>
+				<td>50</td>
+			</tr>
+			<tr>
+				<td>5</td>
 				<td>搜索页面</td>
 				<td>searches.jsp</td>
 				<td>0</td>
 			</tr>
 			<tr>
-				<td>5</td>
+				<td>6</td>
 				<td>用户的管理页面</td>
 				<td>user.jsp</td>
 				<td>0</td>
 			</tr>
 			<tr>
-				<td>6</td>
+				<td>7</td>
 				<td>后台的管理页面</td>
 				<td>admin.jsp</td>
 				<td>0</td>
 			</tr>
 			<tr>
-				<td>7</td>
+				<td>8</td>
 				<td>帮助与支持页面</td>
 				<td>help.jsp</td>
 				<td>0</td>
 			</tr>
 			<tr>
-				<td>8</td>
+				<td>9</td>
 				<td>错误页面</td>
 				<td>error.jsp</td>
 				<td>0</td>
