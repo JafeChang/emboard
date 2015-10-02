@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-10-2 19:04:46 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2015-10-2 22:19:34 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="info.jafe.emboard.entity.User" table="_user" catalog="emboard">
         <id name="id" type="int">
@@ -20,7 +20,7 @@
         <property name="gender" type="string">
             <column name="gender" length="2" not-null="true" />
         </property>
-        <property name="authority" type="java.lang.Boolean">
+        <property name="authority" type="java.lang.Byte">
             <column name="authority">
                 <comment>0 - visitor 1 - banned user 2 - ordinary user 3 - management</comment>
             </column>
@@ -54,13 +54,5 @@
                 <comment>0 - offline 1 - online</comment>
             </column>
         </property>
-        <set name="reposts" table="_repost" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="id" not-null="true">
-                    <comment>user id</comment>
-                </column>
-            </key>
-            <one-to-many class="info.jafe.emboard.entity.Repost" />
-        </set>
     </class>
 </hibernate-mapping>

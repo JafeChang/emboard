@@ -1,5 +1,5 @@
 package info.jafe.emboard.entity;
-// Generated 2015-10-2 19:04:46 by Hibernate Tools 3.5.0.Final
+// Generated 2015-10-2 22:19:33 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 
@@ -9,16 +9,16 @@ import java.util.Date;
 public class Repost implements java.io.Serializable {
 
 	private int repostid;
-	private User user;
+	private int id;
 	private int postid;
 	private Date datetime;
 
 	public Repost() {
 	}
 
-	public Repost(int repostid, User user, int postid, Date datetime) {
+	public Repost(int repostid, int id, int postid, Date datetime) {
 		this.repostid = repostid;
-		this.user = user;
+		this.id = id;
 		this.postid = postid;
 		this.datetime = datetime;
 	}
@@ -31,12 +31,12 @@ public class Repost implements java.io.Serializable {
 		this.repostid = repostid;
 	}
 
-	public User getUser() {
-		return this.user;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getPostid() {

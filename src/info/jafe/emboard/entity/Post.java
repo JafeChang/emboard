@@ -1,5 +1,5 @@
 package info.jafe.emboard.entity;
-// Generated 2015-10-2 19:04:46 by Hibernate Tools 3.5.0.Final
+// Generated 2015-10-2 22:19:33 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 

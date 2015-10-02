@@ -21,5 +21,6 @@
         <!-- 映射文件 -->
         <!-- <mapping resource="com/liang/hibernate/User.hbm.xml"/>
         <mapping resource="test/Student.hbm.xml"/> -->
+        <mapping resource="info/jafe/emboard/entity/User.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
