@@ -154,7 +154,7 @@
 		<div class="modal-body ">
 			<div class="register-div">
 
-				<form class="register-form">
+				<form class="register-form" action="register">
 					<div class="form-group">
 						<input type="text" class="form-control" name="email"
 							placeholder="邮箱" />
