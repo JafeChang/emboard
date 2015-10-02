@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-2 19:04:46 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="info.jafe.emboard.entity.Repost" table="_repost" catalog="emboard">
+        <id name="repostid" type="int">
+            <column name="repostid" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="user" class="info.jafe.emboard.entity.User" fetch="select">
+            <column name="id" not-null="true">
+                <comment>user id</comment>
+            </column>
+        </many-to-one>
+        <property name="postid" type="int">
+            <column name="postid" not-null="true" />
+        </property>
+        <property name="datetime" type="timestamp">
+            <column name="datetime" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

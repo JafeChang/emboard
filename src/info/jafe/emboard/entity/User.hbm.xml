@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-10-2 19:04:46 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="info.jafe.emboard.entity.User" table="_user" catalog="emboard">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="email" type="string">
+            <column name="email" length="100" not-null="true" unique="true" />
+        </property>
+        <property name="nickname" type="string">
+            <column name="nickname" length="20" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="41" not-null="true" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" length="2" not-null="true" />
+        </property>
+        <property name="authority" type="java.lang.Boolean">
+            <column name="authority">
+                <comment>0 - visitor 1 - banned user 2 - ordinary user 3 - management</comment>
+            </column>
+        </property>
+        <property name="postcount" type="byte">
+            <column name="postcount" not-null="true" />
+        </property>
+        <property name="points" type="int">
+            <column name="points" not-null="true" />
+        </property>
+        <property name="flowers" type="byte">
+            <column name="flowers" not-null="true" />
+        </property>
+        <property name="signature" type="string">
+            <column name="signature">
+                <comment>personality signature</comment>
+            </column>
+        </property>
+        <property name="regdate" type="timestamp">
+            <column name="regdate" length="19" not-null="true">
+                <comment>register date</comment>
+            </column>
+        </property>
+        <property name="icon" type="binary">
+            <column name="icon">
+                <comment>user image</comment>
+            </column>
+        </property>
+        <property name="online" type="boolean">
+            <column name="online" not-null="true">
+                <comment>0 - offline 1 - online</comment>
+            </column>
+        </property>
+        <set name="reposts" table="_repost" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id" not-null="true">
+                    <comment>user id</comment>
+                </column>
+            </key>
+            <one-to-many class="info.jafe.emboard.entity.Repost" />
+        </set>
+    </class>
+</hibernate-mapping>

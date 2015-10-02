@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="info.jafe.emboard.entity.User" table="_user" catalog="emboard">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="email" type="java.lang.String">
+            <column name="email" length="100" not-null="true" />
+        </property> 
+        <property name="nickname" type="java.lang.String">
+            <column name="nickname" length="20" not-null="true" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="41"/>
+        </property>
+        <property name="gender" type="java.lang.?">
+            <column name="gender" />
+        </property>
+        <property name="authority" type="java.lang.Integer">
+            <column name="authority" length="1" not-null="true" />
+        </property>
+       
+        <property name="userBirthday" type="java.sql.Timestamp">
+            <column name="userBirthday" length="19" not-null="true" />
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex" not-null="true" />
+        </property>
+        <property name="userPoints" type="java.lang.Integer">
+            <column name="userPoints" not-null="true" />
+        </property>
+        <property name="userRemark" type="java.lang.String">
+            <column name="userRemark" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>
