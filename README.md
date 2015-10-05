@@ -7,7 +7,7 @@ emboard采用MVC设计模式，前端使用bootstrap框架（@javictory），后
 
 由于编写团队水平有限，emboard可能会出现未能预计的bug与效率限制，我们会将会不断完善emboard，同时也欢迎批评与指导。
 
-<hr style="border-bottom:1px dotted #e8e8e8 "
+<hr style="border-bottom:1px dotted #e8e8e8"/>
 
 emboard is a simple message board open source solutions for small teams, currently under intense preparation. (Emboard came from the electro master. Mikoto saikou!)
 
