@@ -11,7 +11,7 @@ import info.jafe.emboard.entity.User;
 import info.jafe.emboard.exceptions.FullUsersException;
 import info.jafe.emboard.service.UserService;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired

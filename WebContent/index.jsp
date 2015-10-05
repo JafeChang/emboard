@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%!Boolean hasLogin;%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,6 +34,10 @@
     <![endif]-->
 </head>
 <body>
+	<%
+		hasLogin = (Boolean) session.getAttribute("hasLogin");
+		System.out.println("hasLogin: " + hasLogin);
+	%>
 	<!-- Static navbar -->
 	<nav class="navbar navbar-default navbar-static-top">
 	<div class="container">
@@ -43,16 +49,22 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand " href="index.jsp"><img class="navbar-logo"
-				alt="emboard" src="images/logo-emboard.png"></a>
+			<a class="navbar-brand " href="index.jsp"><img
+				class="navbar-logo" alt="emboard" src="images/logo-emboard.png"></a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#about">All post</a></li>
-				<li><a href="newpost.jsp">发表文章</a></li>
-				<li><a href="#myModal1" data-toggle="modal">注册</a></li>
-				<li><a href="#myModal2" data-toggle="modal">登陆</a></li>
+				<li class="active"><a href="./">首页</a></li>
+				<li><a href="#about">所有文章</a></li>
+				<%
+					String loginDom;
+					if (hasLogin == null) {
+						loginDom = "<li><a href='#myModal1' data-toggle='modal'>注册</a></li><li><a href='#myModal2' data-toggle='modal'>登陆</a></li>";
+					} else {
+						loginDom = "<li><a href='newpost.jsp'>发表文章</a></li><li><a href='setting'>设置</a></li>";
+					}
+				%>
+				<%=loginDom%>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
