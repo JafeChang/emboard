@@ -1,5 +1,5 @@
 package info.jafe.emboard.entity;
-// Generated 2015-10-2 22:19:33 by Hibernate Tools 3.5.0.Final
+// Generated 2015-10-4 17:46:12 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ public class User implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7118698035579944044L;
+	private static final long serialVersionUID = 5709816992248282033L;
 	private int id;
 	private String email;
 	private String nickname;
@@ -29,6 +29,21 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
+	public User(int id, String email, String password) {
+		Date date = new Date();
+		long time = System.currentTimeMillis();
+		date.setTime(time);
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.gender = "u";
+		this.postcount = 0;
+		this.points = 0;
+		this.flowers = 0;
+		this.regdate = date;
+		this.online = false;
+	}
+	
 	public User(int id, String email, String password, String gender, byte postcount, int points, byte flowers,
 			Date regdate, boolean online) {
 		this.id = id;

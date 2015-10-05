@@ -1,26 +1,18 @@
 <!DOCTYPE hibernate-configuration PUBLIC
     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
- 
+
 <hibernate-configuration>
-    <session-factory>
-        <!-- 设置数据库驱动 -->
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <!-- 设置数据库URL -->
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/emboard</property>
-        <!-- 数据库用户名 -->
-        <property name="hibernate.connection.username">emboard</property>
-        <!-- 数据库密码 -->
-        <property name="hibernate.connection.password">emboard</property>
-        <!-- 指定对应数据库的方言，hibernate为了更好适配各种关系数据库，针对每种数据库都指定了一个方言dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        
-        <property name="show_sql">true</property>
-         
-        <!-- <property name="hbm2dll.auto">true</property> -->
-        <!-- 映射文件 -->
-        <!-- <mapping resource="com/liang/hibernate/User.hbm.xml"/>
-        <mapping resource="test/Student.hbm.xml"/> -->
-        <mapping resource="info/jafe/emboard/entity/User.hbm.xml"/>
-    </session-factory>
+	<session-factory>
+
+		<!-- 数据源配置到IOC容器中，此处不再额外配置 -->
+		<!-- 关联的.hbm.xml 配置到IOC容器中 -->
+		<!-- 配置hibernate的基本属性：方言、SQL显示及格式化、生成数据表的策略及二级缓存相关的属性 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="hbm2dll.auto">update</property>
+
+		<!-- 配置二级缓存相关的属性 -->
+	</session-factory>
 </hibernate-configuration>
