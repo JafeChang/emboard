@@ -1,13 +1,15 @@
 package info.jafe.emboard.dao;
 
 import info.jafe.emboard.entity.User;
+import info.jafe.emboard.exceptions.FullUsersException;
 
 public interface UserDao {
 	/**
 	 * 添加User
+	 * @throws FullUsersException 
 	 * 
 	 */
-	boolean add(String email, String password, String invitationcode);
+	boolean add(String email, String password, String invitationcode) throws FullUsersException;
 
 	/**
 	 * 通过id查找User

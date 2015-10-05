@@ -1,5 +1,7 @@
 package info.jafe.emboard.dao.impl;
 
+import java.util.Date;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import info.jafe.emboard.dao.UserDao;
 import info.jafe.emboard.entity.User;
+import info.jafe.emboard.exceptions.FullUsersException;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -20,13 +23,29 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory.getCurrentSession();
 	}
 
+	private int getLastId() {
+		Session session = getSession();
+		String hql = "select max(id) from User ";
+		Query query = session.createQuery(hql);
+		return (int) query.uniqueResult();
+	}
+
 	@Override
-	public boolean add(String email, String password, String invitationcode) {
-		if (has(email)) {
-			return false;
+	public boolean add(String email, String password, String invitationcode) throws FullUsersException {
+		int lastId = getLastId();
+		boolean success = false;
+		if(lastId == Integer.MAX_VALUE){
+			throw new FullUsersException();
+		}else{
+			Date date = new Date();
+			long time = System.currentTimeMillis();
+			date.setTime(time);
+			User user=new User(lastId + 1,email,password,"u",(byte)0,0,(byte)0,date,false);
+			Session session = getSession();
+			session.save(user);
+			success = true;
 		}
-		// TODO
-		return false;
+		return success;
 	}
 
 	@Override

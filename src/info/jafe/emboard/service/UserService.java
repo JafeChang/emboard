@@ -1,10 +1,12 @@
 package info.jafe.emboard.service;
 
 import info.jafe.emboard.entity.User;
+import info.jafe.emboard.exceptions.FullUsersException;
 
 public interface UserService {
 	/**
 	 * Ìí¼ÓUser
+	 * @throws FullUsersException 
 	 * 
 	 */
 	boolean add(String email, String password, String invitationcode);

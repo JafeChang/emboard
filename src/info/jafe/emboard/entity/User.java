@@ -37,19 +37,21 @@ public class User implements java.io.Serializable {
 		this.email = email;
 		this.password = password;
 		this.gender = "u";
+		this.authority = 2;
 		this.postcount = 0;
 		this.points = 0;
 		this.flowers = 0;
 		this.regdate = date;
 		this.online = false;
 	}
-	
+
 	public User(int id, String email, String password, String gender, byte postcount, int points, byte flowers,
 			Date regdate, boolean online) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
+		this.authority = 2;
 		this.postcount = postcount;
 		this.points = points;
 		this.flowers = flowers;
@@ -64,6 +66,11 @@ public class User implements java.io.Serializable {
 		this.nickname = nickname;
 		this.password = password;
 		this.gender = gender;
+		if (authority > 3) {
+			authority = 2;
+		} else if (authority < 0) {
+			authority = 0;
+		}
 		this.authority = authority;
 		this.postcount = postcount;
 		this.points = points;
