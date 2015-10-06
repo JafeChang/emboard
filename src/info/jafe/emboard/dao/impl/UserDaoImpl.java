@@ -34,13 +34,13 @@ public class UserDaoImpl implements UserDao {
 	public boolean add(String email, String password, String invitationcode) throws FullUsersException {
 		int lastId = getLastId();
 		boolean success = false;
-		if(lastId == Integer.MAX_VALUE){
+		if (lastId == Integer.MAX_VALUE) {
 			throw new FullUsersException();
-		}else{
+		} else {
 			Date date = new Date();
 			long time = System.currentTimeMillis();
 			date.setTime(time);
-			User user=new User(lastId + 1,email,password,"u",(byte)0,0,(byte)0,date,false);
+			User user = new User(lastId + 1, email, password, "u", (byte) 0, 0, (byte) 0, date, false);
 			Session session = getSession();
 			session.save(user);
 			success = true;
@@ -50,14 +50,23 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = getSession();
+		String hql = "from User as user where user.id = ?";
+		Query query = session.createQuery(hql);
+		query.setInteger(0, id);
+		User user = (User) query.uniqueResult();
+		return user;
 	}
 
 	@Override
 	public User get(String email, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = getSession();
+		String hql = "from User as user where user.email = ? and password = ?";
+		Query query = session.createQuery(hql);
+		query.setString(0, email);
+		query.setString(1, password);
+		User user = (User) query.uniqueResult();
+		return user;
 	}
 
 	@Override

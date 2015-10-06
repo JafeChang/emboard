@@ -56,15 +56,15 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="./">首页</a></li>
 				<li><a href="#about">所有文章</a></li>
-				<%
-					String loginDom;
-					if (hasLogin == null) {
-						loginDom = "<li><a href='#myModal1' data-toggle='modal'>注册</a></li><li><a href='#myModal2' data-toggle='modal'>登陆</a></li>";
-					} else {
-						loginDom = "<li><a href='newpost.jsp'>发表文章</a></li><li><a href='setting'>设置</a></li>";
-					}
-				%>
-				<%=loginDom%>
+				<c:if test="${sessionScope.hasLogin != null}">
+					<li><a href='newpost.jsp'>发表文章</a></li>
+					<li><a href='setting'>设置</a></li>
+					<li><a href="logoff">下线</a></li>
+				</c:if>
+				<c:if test="${sessionScope.hasLogin == null}">
+					<li><a href='#myModal1' data-toggle='modal'>注册</a></li>
+					<li><a href='#myModal2' data-toggle='modal'>登陆</a></li>
+				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
@@ -244,7 +244,7 @@
 			<div class="modal-body ">
 				<div class="register-div">
 
-					<form class="login-form">
+					<form class="login-form" action="login">
 						<div class="form-group">
 							<input type="text" class="form-control" name="email"
 								placeholder="邮箱" />
