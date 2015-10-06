@@ -57,7 +57,7 @@
 				<li class="active"><a href="./">首页</a></li>
 				<li><a href="#about">所有文章</a></li>
 				<c:if test="${sessionScope.hasLogin != null}">
-					<li><a href='newpost.jsp'>发表文章</a></li>
+					<li><a href='write.jsp'>发表文章</a></li>
 					<li><a href='setting'>设置</a></li>
 					<li><a href="logoff">下线</a></li>
 				</c:if>
