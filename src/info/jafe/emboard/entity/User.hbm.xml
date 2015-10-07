@@ -6,7 +6,7 @@
     <class name="info.jafe.emboard.entity.User" table="_user" catalog="emboard">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="email" type="string">
             <column name="email" length="100" not-null="true" unique="true" />
@@ -47,11 +47,6 @@
         <property name="icon" type="binary">
             <column name="icon">
                 <comment>user image</comment>
-            </column>
-        </property>
-        <property name="online" type="boolean">
-            <column name="online" not-null="true">
-                <comment>0 - offline 1 - online</comment>
             </column>
         </property>
     </class>

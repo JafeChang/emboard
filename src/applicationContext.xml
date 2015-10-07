@@ -75,36 +75,7 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
-	<!-- 资源文件绑定器，文件名称：messages.properties（没有找到时的默认文件）， messages_en.properties（英文），messages_zh_CN.properties（中午），等等 -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-
-		<property name="basename" value="config.messages.messages" />
-
-	</bean>
-
-
-
-	<!-- 定义本地化变更拦截器 -->
-	<bean id="localeChangeInterceptor"
-		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
-
-
-
-	<util:list id="interceptors">
-		<ref bean="localeChangeInterceptor" />
-	</util:list>
-
-
-
-	<!-- 定义注解URL映射处理器 ，所有的请求映射必须关联本地化拦截器 -->
-	<bean id="urlMapping"
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-		<property name="interceptors" ref="interceptors" />
-		<property name="order" value="1"></property>
-	</bean>
-	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
+	
 
 
 	<!-- 静态资源 -->

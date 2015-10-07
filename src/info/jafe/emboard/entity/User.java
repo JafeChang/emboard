@@ -1,6 +1,7 @@
 package info.jafe.emboard.entity;
 // Generated 2015-10-4 17:46:12 by Hibernate Tools 3.5.0.Final
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -22,9 +23,17 @@ public class User implements java.io.Serializable {
 	private int points;
 	private byte flowers;
 	private String signature;
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", nickname=" + nickname + ", password=" + password + ", gender="
+				+ gender + ", authority=" + authority + ", postcount=" + postcount + ", points=" + points + ", flowers="
+				+ flowers + ", signature=" + signature + ", regdate=" + regdate + ", icon=" + Arrays.toString(icon)
+				+ "]";
+	}
+
 	private Date regdate;
 	private byte[] icon;
-	private boolean online;
 
 	public User() {
 	}
@@ -42,11 +51,10 @@ public class User implements java.io.Serializable {
 		this.points = 0;
 		this.flowers = 0;
 		this.regdate = date;
-		this.online = false;
 	}
 
 	public User(int id, String email, String password, String gender, byte postcount, int points, byte flowers,
-			Date regdate, boolean online) {
+			Date regdate) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
@@ -56,11 +64,10 @@ public class User implements java.io.Serializable {
 		this.points = points;
 		this.flowers = flowers;
 		this.regdate = regdate;
-		this.online = online;
 	}
 
 	public User(int id, String email, String nickname, String password, String gender, Byte authority, byte postcount,
-			int points, byte flowers, String signature, Date regdate, byte[] icon, boolean online) {
+			int points, byte flowers, String signature, Date regdate, byte[] icon) {
 		this.id = id;
 		this.email = email;
 		this.nickname = nickname;
@@ -78,7 +85,6 @@ public class User implements java.io.Serializable {
 		this.signature = signature;
 		this.regdate = regdate;
 		this.icon = icon;
-		this.online = online;
 	}
 
 	public int getId() {
@@ -175,14 +181,6 @@ public class User implements java.io.Serializable {
 
 	public void setIcon(byte[] icon) {
 		this.icon = icon;
-	}
-
-	public boolean isOnline() {
-		return this.online;
-	}
-
-	public void setOnline(boolean online) {
-		this.online = online;
 	}
 
 }

@@ -9,7 +9,7 @@ public interface UserDao {
 	 * @throws FullUsersException 
 	 * 
 	 */
-	boolean add(String email, String password, String invitationcode) throws FullUsersException;
+	void add(String email, String password, String invitationcode);
 
 	/**
 	 * Í¨¹ýid²éÕÒUser

@@ -8,6 +8,16 @@ import java.util.Date;
  */
 public class Post implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8967728030499826838L;
+	@Override
+	public String toString() {
+		return "Post [postid=" + postid + ", topic=" + topic + ", datetime=" + datetime + ", body=" + body + ", tag="
+				+ tag + ", id=" + id + ", flowers=" + flowers + "]";
+	}
+
 	private int postid;
 	private String topic;
 	private Date datetime;
@@ -19,15 +29,16 @@ public class Post implements java.io.Serializable {
 	public Post() {
 	}
 
-	public Post(int postid, String topic, Date datetime, String tag, int id, byte flowers) {
+	public Post(int postid, String topic, Date datetime, String body, String tag, int id) {
 		this.postid = postid;
 		this.topic = topic;
 		this.datetime = datetime;
+		this.body = body;
 		this.tag = tag;
 		this.id = id;
-		this.flowers = flowers;
+		this.flowers = 0;
 	}
-
+	
 	public Post(int postid, String topic, Date datetime, String body, String tag, int id, byte flowers) {
 		this.postid = postid;
 		this.topic = topic;

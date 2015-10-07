@@ -6,10 +6,10 @@
     <class name="info.jafe.emboard.entity.Post" table="_post" catalog="emboard">
         <id name="postid" type="int">
             <column name="postid" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="topic" type="string">
-            <column name="topic" length="80" not-null="true" unique="true" />
+            <column name="topic" length="80" not-null="true" />
         </property>
         <property name="datetime" type="timestamp">
             <column name="datetime" length="19" not-null="true" />

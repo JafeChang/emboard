@@ -39,7 +39,7 @@
 <body>
 
 	<div class="container">
-		<form action="addpost" class="addpost-form" id="addpost-form">
+		<form action="addpost" class="addpost-form" id="addpost-form" method="post">
 			<div class="hero-unit">
 				<div class="input-group "></div>
 				<div class="row-fluid">

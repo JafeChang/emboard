@@ -10,11 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import info.jafe.emboard.dao.UserDao;
 import info.jafe.emboard.entity.User;
-import info.jafe.emboard.exceptions.FullUsersException;
 
 @Repository
 public class UserDaoImpl implements UserDao {
-	// @Qualifier("sessionFactory")
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -23,29 +21,12 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory.getCurrentSession();
 	}
 
-	private int getLastId() {
-		Session session = getSession();
-		String hql = "select max(id) from User ";
-		Query query = session.createQuery(hql);
-		return (int) query.uniqueResult();
-	}
-
 	@Override
-	public boolean add(String email, String password, String invitationcode) throws FullUsersException {
-		int lastId = getLastId();
-		boolean success = false;
-		if (lastId == Integer.MAX_VALUE) {
-			throw new FullUsersException();
-		} else {
-			Date date = new Date();
-			long time = System.currentTimeMillis();
-			date.setTime(time);
-			User user = new User(lastId + 1, email, password, "u", (byte) 0, 0, (byte) 0, date, false);
-			Session session = getSession();
-			session.save(user);
-			success = true;
-		}
-		return success;
+	public void add(String email, String password, String invitationcode) {
+		Date date = new Date(System.currentTimeMillis());
+		User user = new User(0, email, password, "u", (byte) 0, 0, (byte) 0, date);
+		Session session = getSession();
+		session.save(user);
 	}
 
 	@Override
@@ -81,8 +62,8 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void update(User user) {
-		// TODO Auto-generated method stub
-
+		Session session = getSession();
+		session.update(user);
 	}
 
 }

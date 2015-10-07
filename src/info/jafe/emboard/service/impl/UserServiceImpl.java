@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import info.jafe.emboard.dao.UserDao;
 import info.jafe.emboard.entity.User;
-import info.jafe.emboard.exceptions.FullUsersException;
 import info.jafe.emboard.service.UserService;
 
 @Service("userService")
@@ -47,16 +46,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean add(String email, String password, String invitationcode) {
 		if (userDao.has(email)) {
-			System.out.println("repeat email");
-			return false;
+			return false;// email repeat
 		} else {
-			try {
-				return userDao.add(email, encodeMD5(password), invitationcode);
-			} catch (FullUsersException e) {
-				e.printStackTrace();
-			}
+			userDao.add(email, encodeMD5(password), invitationcode);
+			return true;
 		}
-		return false;
 	}
 
 	@Override
@@ -78,8 +72,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void update(User user) {
-		// TODO Auto-generated method stub
-
+		userDao.update(user);
 	}
 
 }
