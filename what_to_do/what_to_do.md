@@ -7,7 +7,7 @@
 ####目录结构
 @jafechang 2015-09-30  
   
-详见 [README.md](https://github.com/JafeChang/emboard/blob/master/README.md#目录结构 "目录结构")
+详见 [README-目录结构](https://github.com/JafeChang/emboard/tree/branch-spring#user-content-目录结构 "目录结构")
 
 ####视图资源（HTML）清单 
 @jafechang  2015-10-11
@@ -37,18 +37,18 @@
 				<td>3</td>
 				<td>已发表文章页面</td>
 				<td>myposts.jsp</td>
-				<td>90</td>
+				<td>0</td>
 			</tr>
 			<tr>
 				<td>4</td>
 				<td>发表文章页面</td>
-				<td>newpost.jsp</td>
+				<td>write.jsp</td>
 				<td>50</td>
 			</tr>
 			<tr>
 				<td>5</td>
 				<td>搜索页面</td>
-				<td>searches.jsp</td>
+				<td>search.jsp</td>
 				<td>90</td>
 			</tr>
 			<tr>
@@ -74,6 +74,12 @@
 				<td>错误页面</td>
 				<td>error.jsp</td>
 				<td>0</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>文章页面</td>
+				<td>post.jsp</td>
+				<td>90</td>
 			</tr>
 		</tbody>
 	</table>
