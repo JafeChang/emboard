@@ -99,13 +99,13 @@
 				<td>2</td>
 				<td>所有文章页面</td>
 				<td>allposts.jsp</td>
-				<td>90</td>
+				<td>0</td>
 			</tr>
 			<tr>
 				<td>3</td>
 				<td>已发表文章页面</td>
 				<td>myposts.jsp</td>
-				<td>90</td>
+				<td>0</td>
 			</tr>
 			<tr>
 				<td>4</td>
@@ -117,7 +117,7 @@
 				<td>5</td>
 				<td>搜索页面</td>
 				<td>searches.jsp</td>
-				<td>90</td>
+				<td>0</td>
 			</tr>
 			<tr>
 				<td>6</td>
