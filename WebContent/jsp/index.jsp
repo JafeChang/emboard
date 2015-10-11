@@ -57,7 +57,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="./">首页</a></li>
-				<li><a href="#about">所有文章</a></li>
+				<li><a href="allposts?current=1">所有文章</a></li>
 				<c:if test="${sessionScope.hasLogin != null}">
 					<li><a href='write'>发表文章</a></li>
 					<li><a href='setting'>设置</a></li>

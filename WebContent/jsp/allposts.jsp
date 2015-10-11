@@ -127,22 +127,26 @@
 
 
 				<nav>
-				<div id="pagination">
-					<c:if test="${currentPage > 4 }"><span class="btn">...</span></c:if>
-					<c:if test="${currentPage > 3 }"><a href="allposts?current=${(currentPage-3)}" class="btn">${currentPage-3}</a></c:if>
-					<c:if test="${currentPage > 2 }"><a href="allposts?current=${(currentPage-2)}" class="btn">${currentPage-2}</a></c:if>
-					<c:if test="${currentPage > 1 }"><a href="allposts?current=${(currentPage-1)}" class="btn">${currentPage-1}</a></c:if>
-					<a href="#" class="btn active">${currentPage}</a>
-					<c:if test="${lastPage - currentPage > 0 }"><a href="allposts?current=${(currentPage+1)}" class="btn">${currentPage+1}</a></c:if>
-					<c:if test="${lastPage - currentPage > 1 }"><a href="allposts?current=${(currentPage+2)}" class="btn">${currentPage+2}</a></c:if>
-					<c:if test="${lastPage - currentPage > 2 }"><a href="allposts?current=${(currentPage+3)}" class="btn">${currentPage+3}</a></c:if>
-					<c:if test="${lastPage - currentPage > 3 }"><span class="btn">...</span></c:if>
-					<c:if test="${currentPage > 1 }"><a href="allposts?current=1" class="btn"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a></a> </c:if>
-					<c:if test="${currentPage > 1 }"><a href="allposts?current=${(currentPage-1)}" class="btn"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></c:if>
-					<c:if test="${lastPage - currentPage > 0 }"><a href="allposts?current=${(currentPage+1)}" class="btn"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></c:if>
-					<c:if test="${lastPage - currentPage > 0 }"><a href="allposts?current=${lastPage}" class="btn"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></a></c:if>
+				<ul id="pagination" class="pager">
+					<li><c:if test="${currentPage > 1 }"><a href="allposts?current=1" class="btn"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a></a> </c:if></li>
+					<li><c:if test="${currentPage ==1 }"><a href="allposts?current=1" class="btn disabled"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a></a> </c:if></li>
+					<li><c:if test="${currentPage > 1 }"><a href="allposts?current=${(currentPage-1)}" class="btn"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></c:if></li>
+					<li><c:if test="${currentPage ==1 }"><a href="allposts?current=${(currentPage-1)}" class="btn disabled"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a></c:if></li>
+					<li><c:if test="${currentPage > 4 }"><span class="btn">...</span></c:if></li>
+					<li><c:if test="${currentPage > 3 }"><a href="allposts?current=${(currentPage-3)}" class="btn">${currentPage-3}</a></c:if></li>
+					<li><c:if test="${currentPage > 2 }"><a href="allposts?current=${(currentPage-2)}" class="btn">${currentPage-2}</a></c:if></li>
+					<li><c:if test="${currentPage > 1 }"><a href="allposts?current=${(currentPage-1)}" class="btn">${currentPage-1}</a></c:if></li>
+					<li><a href="#" class="btn active">${currentPage}</a></li>
+					<li><c:if test="${lastPage - currentPage > 0 }"><a href="allposts?current=${(currentPage+1)}" class="btn">${currentPage+1}</a></c:if></li>
+					<li><c:if test="${lastPage - currentPage > 1 }"><a href="allposts?current=${(currentPage+2)}" class="btn">${currentPage+2}</a></c:if></li>
+					<li><c:if test="${lastPage - currentPage > 2 }"><a href="allposts?current=${(currentPage+3)}" class="btn">${currentPage+3}</a></c:if></li>
+					<li><c:if test="${lastPage - currentPage > 3 }"><span class="btn">...</span></c:if></li>
+					<li><c:if test="${lastPage - currentPage > 0 }"><a href="allposts?current=${(currentPage+1)}" class="btn"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></c:if></li>
+					<li><c:if test="${lastPage - currentPage ==0 }"><a href="allposts?current=${(currentPage+1)}" class="btn disabled"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></a></c:if></li>
+					<li><c:if test="${lastPage - currentPage > 0 }"><a href="allposts?current=${lastPage}" class="btn"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></a></c:if></li>
+					<li><c:if test="${lastPage - currentPage ==0 }"><a href="allposts?current=${lastPage}" class="btn disabled"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></a></c:if></li>
 
-				</div>
+				</ul>
 				<br/>
 				<br/>
 				<br/>
