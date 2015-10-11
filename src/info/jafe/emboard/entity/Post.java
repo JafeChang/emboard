@@ -12,10 +12,11 @@ public class Post implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8967728030499826838L;
+
 	@Override
 	public String toString() {
 		return "Post [postid=" + postid + ", topic=" + topic + ", datetime=" + datetime + ", body=" + body + ", tag="
-				+ tag + ", id=" + id + ", flowers=" + flowers + "]";
+				+ tag + ", id=" + id + ", author=" + author + ", flowers=" + flowers + ", shortcut=" + shortcut + "]";
 	}
 
 	private int postid;
@@ -24,29 +25,37 @@ public class Post implements java.io.Serializable {
 	private String body;
 	private String tag;
 	private int id;
+	private String author;
 	private byte flowers;
+	private String shortcut;
 
 	public Post() {
 	}
 
-	public Post(int postid, String topic, Date datetime, String body, String tag, int id) {
+	public Post(int postid, String topic, Date datetime, String body, String tag, int id, String author,
+			String shortcut) {
 		this.postid = postid;
 		this.topic = topic;
 		this.datetime = datetime;
 		this.body = body;
 		this.tag = tag;
 		this.id = id;
+		this.author = author;
 		this.flowers = 0;
+		this.shortcut = shortcut;
 	}
-	
-	public Post(int postid, String topic, Date datetime, String body, String tag, int id, byte flowers) {
+
+	public Post(int postid, String topic, Date datetime, String body, String tag, int id, String author, byte flowers,
+			String shortcut) {
 		this.postid = postid;
 		this.topic = topic;
 		this.datetime = datetime;
 		this.body = body;
 		this.tag = tag;
 		this.id = id;
+		this.author = author;
 		this.flowers = flowers;
+		this.shortcut = shortcut;
 	}
 
 	public int getPostid() {
@@ -103,6 +112,22 @@ public class Post implements java.io.Serializable {
 
 	public void setFlowers(byte flowers) {
 		this.flowers = flowers;
+	}
+
+	public String getShortcut() {
+		return shortcut;
+	}
+
+	public void setShortcut(String shortcut) {
+		this.shortcut = shortcut;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 }

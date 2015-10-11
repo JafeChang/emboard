@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-10-4 17:46:12 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2015-10-10 15:21:07 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="info.jafe.emboard.entity.User" table="_user" catalog="emboard">
-        <id name="id" type="int">
+        <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="native" />
+            <generator class="identity" />
         </id>
         <property name="email" type="string">
             <column name="email" length="100" not-null="true" unique="true" />

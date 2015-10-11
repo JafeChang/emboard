@@ -31,7 +31,9 @@
 <script src="js/editor/editor.js"></script>
 <script type="text/javascript">
 	function sub() {
-		$("#divvalue").attr( "value",$("#editor").html());
+		$("#divvalue").attr("value", $("#editor").html());
+		var shortcutText = $("#editor").text().substring(0, 140);
+		$("#shortcut").attr("value", shortcutText);
 		$("#addpost-form").submit();
 	}
 </script>
@@ -39,12 +41,14 @@
 <body>
 
 	<div class="container">
-		<form action="addpost" class="addpost-form" id="addpost-form" method="post">
+		<form action="addpost" class="addpost-form" id="addpost-form"
+			method="post">
 			<div class="hero-unit">
 				<div class="input-group "></div>
 				<div class="row-fluid">
 					<div class="span8">
-						<input type="text" class="input-title" name="topic" placeholder="标题" value="" />
+						<input type="text" class="input-title" name="topic"
+							placeholder="标题" value="" />
 					</div>
 					<div class="span4">
 
@@ -52,7 +56,9 @@
 							onclick="javascript:sub();">发表</button>
 					</div>
 				</div>
-				<input type="hidden" class="divvalue" id="divvalue" value="" name="body"/>
+				<input type="hidden" class="divvalue" id="divvalue" value=""
+					name="body" /> <input type="hidden" class="shortcut" id="shortcut"
+					value="" name="shortcut" />
 				<div id="alerts" class="span12"></div>
 				<div class="btn-toolbar" data-role="editor-toolbar"
 					data-target="#editor">

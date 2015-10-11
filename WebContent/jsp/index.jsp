@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="info.jafe.emboard.entity.Post"%>
+<%@ page import="java.util.List"%>
 <%!Boolean hasLogin;%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -36,7 +38,7 @@
 <body>
 	<%
 		hasLogin = (Boolean) session.getAttribute("hasLogin");
-		System.out.println("hasLogin: " + hasLogin);
+		List<Post> postshorts = (List<Post>) session.getAttribute("postshorts");
 	%>
 	<!-- Static navbar -->
 	<nav class="navbar navbar-default navbar-static-top">
@@ -57,7 +59,7 @@
 				<li class="active"><a href="./">首页</a></li>
 				<li><a href="#about">所有文章</a></li>
 				<c:if test="${sessionScope.hasLogin != null}">
-					<li><a href='write.jsp'>发表文章</a></li>
+					<li><a href='write'>发表文章</a></li>
 					<li><a href='setting'>设置</a></li>
 					<li><a href="logoff">下线</a></li>
 				</c:if>
@@ -68,9 +70,9 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<form class="navbar-form form-search">
+					<form class="navbar-form form-search" action="search">
 						<input type="text" class="form-control input-medium search-query"
-							placeholder="Search..." />
+							placeholder="Search..." name="queryString"/>
 						<button type="submit" class="btn  btn-info">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</button>
@@ -85,36 +87,45 @@
 
 	<div class="container">
 
-		<div class="blog-header">
-			<h1 class="blog-title">The Bootstrap Blog</h1>
-			<p class="lead blog-description">The official example template of
-				creating a blog with Bootstrap.</p>
-		</div>
-
 		<div class="row">
 
 			<div class="col-sm-8 blog-main">
 				<!-- /.blog-main -->
-				<div class="blog-post">
-					<iframe src="blogdemo.html" frameborder="0" width="100%"
-						height="100%" scrolling="no" id="post-iframe-1"> </iframe>
-					<script type="text/javascript">
-						$("#post-iframe-1").load(
-								function() {
-									var mainheight = $(this).contents().find(
-											"body").height() + 30;
-									$(this).height(mainheight);
-								});
-					</script>
-				</div>
+				<c:forEach var="postshort" items="${postshorts}">
+					<div class="blog-post">
+						<div>
+							<div>
+								<h1 class="blog-title">
+									<a class="blog-topic" href="post?postid=${postshort.postid}"><c:out
+											value="${postshort.topic}"></c:out></a>
+								</h1>
+							</div>
+							<div class="panel-group">
+								<table class="col-xs-12">
+									<tr class=" text-muted ">
+										<td align="left"><c:out value="${postshort.author}"></c:out></td>
+										<td><span></span></td>
+										<td align="right"><c:out value="${postshort.datetime}"></c:out></td>
+									</tr>
+								</table>
+							</div>
+							<div><br/></div>
+						</div>
+
+						<div class="blog-post">
+							<a class="blog-shortcut" href="post?postid=${postshort.postid}"> <c:out
+									value="${postshort.shortcut}..."></c:out></a> <br />
+							<p class="text-muted text-right"></p>
+						</div>
+						<hr>
+					</div>
+				</c:forEach>
+
 
 
 				<nav>
 				<ul class="pager">
-					<li><a href="#"><span
-							class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a></li>
-					<li><a href="#"><span
-							class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></li>
+					<li><a href="allposts?current=1">更多</a></li>
 				</ul>
 				</nav>
 

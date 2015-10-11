@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2015-10-4 17:46:12 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2015-10-10 15:21:07 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="info.jafe.emboard.entity.Repost" table="_repost" catalog="emboard">
         <id name="repostid" type="int">

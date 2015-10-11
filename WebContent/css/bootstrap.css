@@ -7254,3 +7254,17 @@ button.close {
 	margin-top: -5px !important;
 	height: 100% !important;
 }
+
+a.blog-shortcut{
+	color: #8e8e8e;
+}
+a.blog-shortcut:active,a.blog-shortcut:hover{
+	outline: 0;
+	text-decoration:none;
+	color: #8e8e8e;
+}
+
+a.blog-topic:active,a.blog-topic:hover{
+	outline: 0;
+	text-decoration:none;
+}

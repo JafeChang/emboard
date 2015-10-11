@@ -26,19 +26,20 @@ public class PostDaoImpl implements PostDao {
 	}
 
 	@Override
-	public void add(int postid, String topic, String body, String tag, int id) {
+	public int add(int postid, String topic, String body, String tag, int id, String author, String shortcut) {
 		Date date = new Date(System.currentTimeMillis());
-		Post post = new Post(postid, topic, date, body, tag, id);
+		Post post = new Post(postid, topic, date, body, tag, id, author, shortcut);
 		Session session = getSession();
 		session.save(post);
+		return post.getPostid();
 	}
 
 	@Override
 	public Post getByPostId(int postid) {
 		Session session = getSession();
-		String hql = "from Post as post where post.postid = ?";
+		String hql = "from Post as post where post.postid = ?0";
 		Query query = session.createQuery(hql);
-		query.setInteger(0, postid);
+		query.setInteger("0", postid);
 		Post post = (Post) query.uniqueResult();
 		return post;
 	}
@@ -48,9 +49,9 @@ public class PostDaoImpl implements PostDao {
 	public List<Post> getByUser(User user) {
 		int id = user.getId();
 		Session session = getSession();
-		String hql = "select * from Post as post where post.id = ?";
+		String hql = "select * from Post as post where post.id = ?0";
 		Query query = session.createQuery(hql);
-		query.setInteger(0, id);
+		query.setInteger("0", id);
 		List<Post> posts = query.list();
 		return posts;
 	}
@@ -69,10 +70,10 @@ public class PostDaoImpl implements PostDao {
 		BinaryTree<Integer> rs = new BinaryTree<Integer>();
 		List<Post> posts = new ArrayList<Post>();
 		for (int i = 0; i < len; i++) {
-			String hql = "from Post as post where post.topic like ?";
+			String hql = "from Post as post where post.topic like ?0";
 			Query query = session.createQuery(hql);
 			String q = "%" + args[i] + "%";
-			query.setString(0, q);
+			query.setString("0", q);
 			List<Post> postsTemp = query.list();
 			for (int j = 0; j < postsTemp.size(); j++) {
 				int postid = postsTemp.get(j).getPostid();
@@ -83,6 +84,27 @@ public class PostDaoImpl implements PostDao {
 			}
 		}
 		return posts;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Post> getPosts(int start, int n) {
+		Session session = getSession();
+		String hql = "from Post as post order by post.datetime desc";
+		Query query = session.createQuery(hql);
+		query.setFirstResult(start);
+		query.setMaxResults(n);
+		List<Post> posts = query.list();
+		return posts;
+	}
+
+	@Override
+	public long getPostAmount() {
+		Session session = getSession();
+		String hql = "select count(*) from Post ";
+		Query query = session.createQuery(hql);
+		Long amount = (Long) query.uniqueResult();
+		return amount;
 	}
 
 }

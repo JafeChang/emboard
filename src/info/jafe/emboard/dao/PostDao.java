@@ -1,7 +1,6 @@
 package info.jafe.emboard.dao;
 
 import java.util.List;
-import java.util.Set;
 
 import info.jafe.emboard.entity.Post;
 import info.jafe.emboard.entity.User;
@@ -14,8 +13,14 @@ public interface PostDao {
 	 * @throws FullPostsException 
 	 * 
 	 */
-	void add(int postid, String topic, String body, String tag, int id) ;
+	int add(int postid, String topic, String body, String tag, int id, String author, String shortcut);
 
+	/**
+	 * 返回post数量
+	 * 
+	 */
+	long getPostAmount();
+	
 	/**
 	 * 通过post id查找Post
 	 * 
@@ -34,6 +39,12 @@ public interface PostDao {
 	 * 
 	 */
 	List<Post> getBySearch(String args[]);
+	
+	/**
+	 * 查询最新的n个Post
+	 * 
+	 */
+	List<Post> getPosts(int start, int n);
 
 	/**
 	 * 更新post

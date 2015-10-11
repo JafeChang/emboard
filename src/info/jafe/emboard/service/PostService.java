@@ -1,7 +1,6 @@
 package info.jafe.emboard.service;
 
 import java.util.List;
-import java.util.Set;
 
 import info.jafe.emboard.entity.Post;
 import info.jafe.emboard.entity.User;
@@ -15,8 +14,14 @@ public interface PostService {
 	 * @throws FullPostsException
 	 * 
 	 */
-	boolean add(int postid, String topic, String body, String tag, int id);
+	int add(String topic, String body, String tag, int id, String author, String shortcut);
 
+	/**
+	 * 返回post数量
+	 * 
+	 */
+	long getPostAmount();
+	
 	/**
 	 * 通过post id查找Post
 	 * 
@@ -34,6 +39,12 @@ public interface PostService {
 	 * 
 	 */
 	List<Post> getBySearch(String args[]);
+	
+	/**
+	 * 查询最新的n个Post
+	 * 
+	 */
+	List<Post> getPosts(int start, int n);
 
 	/**
 	 * 更新post

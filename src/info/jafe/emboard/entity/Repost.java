@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class Repost implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1176988860307420409L;
 	private int repostid;
 	private int id;
 	private int postid;

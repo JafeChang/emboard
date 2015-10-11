@@ -20,14 +20,13 @@ public class PostServiceImpl implements PostService {
 	private PostDao postDao;
 
 	@Override
-	public boolean add(int postid, String topic, String body, String tag, int id) {
-		boolean success = false;
+	public int add(String topic, String body, String tag, int id, String author, String shortcut) {
+		int postid = -1;
 		User user = userDao.getById(id);
 		if (user != null) {
-			postDao.add(postid, topic, body, tag, id);
-			success = true;
+			postid = postDao.add(0, topic, body, tag, id, author, shortcut);
 		}
-		return success;
+		return postid;
 	}
 
 	@Override
@@ -50,6 +49,16 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public List<Post> getBySearch(String[] args) {
 		return postDao.getBySearch(args);
+	}
+
+	@Override
+	public List<Post> getPosts(int start, int n) {
+		return postDao.getPosts(start, n);
+	}
+
+	@Override
+	public long getPostAmount() {
+		return postDao.getPostAmount();
 	}
 
 }

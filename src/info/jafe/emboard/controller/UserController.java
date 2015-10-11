@@ -11,11 +11,30 @@ import info.jafe.emboard.entity.User;
 import info.jafe.emboard.service.UserService;
 
 @Controller
-public class RegisterController {
+public class UserController {
 
 	@Resource(name = "userService")
 	private UserService userService;
 
+	@RequestMapping("login")
+	public String login(@RequestParam String email, @RequestParam String password, HttpSession session) {
+		User user = userService.get(email, password);
+		if (user == null) {
+			return "error?type=loginError";
+		} else {
+			session.setAttribute("hasLogin", true);
+			session.setAttribute("user", user);
+			return "redirect:/";
+		}
+	}
+	
+	@RequestMapping("logoff")
+	public String login( HttpSession session) {
+			session.removeAttribute("hasLogin");
+			session.removeAttribute("user");
+			return "redirect:/";
+	}
+	
 	@RequestMapping("register")
 	public String register(@RequestParam String email, @RequestParam String password,
 			@RequestParam String invitationcode,HttpSession session) {
@@ -30,6 +49,4 @@ public class RegisterController {
 		}
 
 	}
-	
-	
 }
