@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean add(String email, String password, String invitationcode) {
-		if (userDao.has(email)) {
+		if (userDao.had(email)) {
 			return false;// email repeat
 		} else {
 			userDao.add(email, encodeMD5(password), invitationcode);
@@ -64,10 +64,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean has(String email) {
+	public boolean had(String email) {
 		// TODO Auto-generated method stub
 		System.out.println("service has pass");
-		return userDao.has(email);
+		return userDao.had(email);
 	}
 
 	@Override

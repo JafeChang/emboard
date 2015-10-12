@@ -22,6 +22,7 @@ public class UserController {
 		if (user == null) {
 			return "error?type=loginError";
 		} else {
+			user.setPassword("");
 			session.setAttribute("hasLogin", true);
 			session.setAttribute("user", user);
 			return "redirect:/";

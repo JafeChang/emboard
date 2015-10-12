@@ -11,4 +11,10 @@ def getDir(directory,level):
 		for lowDir in os.listdir(directory):
 			getDir(directory+"/"+lowDir,level+1)
 	
+print "src"
+print 
+getDir("src",0)
+print 
+print "webContent"
+print 
 getDir("webContent",0)

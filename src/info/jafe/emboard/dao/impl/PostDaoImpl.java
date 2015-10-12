@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import info.jafe.emboard.dao.PostDao;
 import info.jafe.emboard.entity.Post;
-import info.jafe.emboard.entity.User;
 import info.jafe.util.BinaryTree;
 
 @Repository
@@ -46,12 +45,13 @@ public class PostDaoImpl implements PostDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Post> getByUser(User user) {
-		int id = user.getId();
+	public List<Post> getByUser(int id, int start, int n) {
 		Session session = getSession();
-		String hql = "select * from Post as post where post.id = ?0";
+		String hql = "from Post as post where post.id = ?0 order by post.datetime desc";
 		Query query = session.createQuery(hql);
 		query.setInteger("0", id);
+		query.setFirstResult(start);
+		query.setMaxResults(n);
 		List<Post> posts = query.list();
 		return posts;
 	}
@@ -105,6 +105,15 @@ public class PostDaoImpl implements PostDao {
 		Query query = session.createQuery(hql);
 		Long amount = (Long) query.uniqueResult();
 		return amount;
+	}
+
+	@Override
+	public long getUserPostAmount(int id) {
+		Session session = getSession();
+		String hql = "select count(*) from Post as post where post.id = ?0";
+		Query query = session.createQuery(hql);
+		query.setInteger("0", id);
+		return (Long) query.uniqueResult();
 	}
 
 }

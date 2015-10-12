@@ -51,7 +51,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean has(String email) {
+	public boolean had(String email) {
 		Session session = getSession();
 		String hql = "select count(*) from User as user where user.email = ?0";
 		Query query = session.createQuery(hql);

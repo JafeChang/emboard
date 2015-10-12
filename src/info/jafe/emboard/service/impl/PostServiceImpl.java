@@ -15,9 +15,9 @@ import info.jafe.emboard.service.PostService;
 public class PostServiceImpl implements PostService {
 
 	@Autowired
-	private UserDao userDao;
-	@Autowired
 	private PostDao postDao;
+	@Autowired
+	private UserDao userDao;
 
 	@Override
 	public int add(String topic, String body, String tag, int id, String author, String shortcut) {
@@ -36,19 +36,24 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<Post> getByUser(User user) {
-		List<Post> posts = postDao.getByUser(user);
-		return posts;
-	}
-
-	@Override
-	public void update(Post post) {
-		postDao.update(post);
-	}
-
-	@Override
 	public List<Post> getBySearch(String[] args) {
 		return postDao.getBySearch(args);
+	}
+
+	@Override
+	public List<Post> getByUser(int id, int start, int n) {
+		return postDao.getByUser(id, start, n);
+	}
+
+	@Override
+	public List<Post> getByUser(User user, int start, int n) {
+		int id = user.getId();
+		return getByUser(id, start, n);
+	}
+
+	@Override
+	public long getPostAmount() {
+		return postDao.getPostAmount();
 	}
 
 	@Override
@@ -57,8 +62,21 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public long getPostAmount() {
-		return postDao.getPostAmount();
+	public long getUserPostAmount(int id) {
+		return postDao.getUserPostAmount(id);
 	}
+
+	@Override
+	public long getUserPostAmount(User user) {
+		int id = user.getId();
+		return getUserPostAmount(id);
+	}
+
+	@Override
+	public void update(Post post) {
+		postDao.update(post);
+	}
+	
+	
 
 }

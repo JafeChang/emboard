@@ -22,10 +22,10 @@ Because of our limited capability, emboard may appear unforeseen bugs and some l
 ####目录结构
 @jafechang 2015-09-30
 
-目前所有的视图在WebContent目录下，包括jsp、js与css文件；
+目前所有的视图在webContent目录下，包括jsp、js与css文件；
 后台java源文件在src下。临时目录结构，很快会有变化。
 
-@jafechang 2015-10-11
+@jafechang 2015-10-12
 
 src
 
@@ -71,7 +71,7 @@ src
     |	|	src/test/SpringHibernateTest.java
 
 webContent
-  
+
     webContent
     |	webContent/.DS_Store
     |	webContent/blogdemo.html
@@ -200,10 +200,15 @@ webContent
     |	|	webContent/js/ie10-viewport-bug-workaround.js
     |	|	webContent/js/jquery.hotkeys.js
     |	webContent/jsp
-    |	|	webContent/jsp/allposts.jsp
+    |	|	webContent/jsp/_blogshort.jsp
+    |	|	webContent/jsp/_blogsidebar.jsp
+    |	|	webContent/jsp/_modal.jsp
+    |	|	webContent/jsp/_nav.jsp
     |	|	webContent/jsp/index.jsp
     |	|	webContent/jsp/post.jsp
+    |	|	webContent/jsp/posts.jsp
     |	|	webContent/jsp/search.jsp
+    |	|	webContent/jsp/userposts.jsp
     |	|	webContent/jsp/write.jsp
     |	webContent/META-INF
     |	|	webContent/META-INF/MANIFEST.MF

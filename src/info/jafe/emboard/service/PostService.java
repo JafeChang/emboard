@@ -23,6 +23,18 @@ public interface PostService {
 	long getPostAmount();
 	
 	/**
+	 * 返回某user的post数量
+	 * 
+	 */
+	long getUserPostAmount(User user);
+	
+	/**
+	 * 通过user的id返回post数量
+	 * 
+	 */
+	long getUserPostAmount(int id);
+	
+	/**
 	 * 通过post id查找Post
 	 * 
 	 */
@@ -32,7 +44,13 @@ public interface PostService {
 	 * 通过user查询Post
 	 * 
 	 */
-	List<Post> getByUser(User user);
+	List<Post> getByUser(User user, int start, int n);
+
+	/**
+	 * 通过user的id查询Post
+	 * 
+	 */
+	List<Post> getByUser(int id, int start, int n);
 	
 	/**
 	 * 通过title搜索Post

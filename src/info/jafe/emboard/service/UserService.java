@@ -27,7 +27,7 @@ public interface UserService {
 	 * 通过email查询是否存在User
 	 * 
 	 */
-	boolean has(String email);
+	boolean had(String email);
 
 	/**
 	 * 更新User
