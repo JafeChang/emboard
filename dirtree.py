@@ -6,7 +6,8 @@ import os.path
 import time
 
 def getDir(directory,level):
-	print "    "+"|\t"*level+directory
+	d = directory.split('/')
+	print "    "+"|\t"*level+d[len(d)-1]
 	if os.path.isdir(directory):
 		for lowDir in os.listdir(directory):
 			getDir(directory+"/"+lowDir,level+1)
